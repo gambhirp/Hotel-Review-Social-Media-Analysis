@@ -1,92 +1,31 @@
-# 🏨 Hotel Review Analysis – Social Media Project
+# Hotel Review Analysis – Social Media Project
+### Project Overview
+This project involves the analysis of over 515,000 hotel reviews sourced from Booking.com. It uses natural language processing, sentiment analysis, and machine learning to derive actionable insights. The aim is to benchmark hotel performance and identify areas for enhancing the guest experience.
 
-## 📌 Project Overview
+### Objectives
+The main goals of this project are to classify hotel reviews as either positive or negative, uncover recurring themes using topic modeling techniques such as Latent Dirichlet Allocation, benchmark hotels based on sentiment scores, prices, and star ratings, and build an interactive web application using Flask to display insights in a user-friendly format.
 
-This project analyzes 515,000+ Booking.com hotel reviews using NLP, sentiment analysis, and machine learning to extract insights, benchmark hotel performance, and improve guest experience.
+### Methodology
+The dataset was prepared by merging positive and negative reviews into one combined dataset. The text was cleaned by removing unnecessary characters, tokenized, and lemmatized. Sentiment labels were assigned based on review scores, where reviews rated seven or above were labeled as positive, and those rated below seven were labeled as negative. The dataset was balanced with 86,851 positive and 86,851 negative reviews to ensure model accuracy.
 
+TF-IDF vectorization was applied using the top 5,000 terms to create a high-dimensional sparse matrix suitable for model input. Two machine learning models were tested: Naive Bayes and Logistic Regression. The Logistic Regression model was selected as the final classifier due to its performance. LIME (Local Interpretable Model-agnostic Explanations) was used to provide transparency and interpretability for the predictions.
 
-## 🎯 Objectives
+Separate topic models were built for positive and negative reviews using Latent Dirichlet Allocation. Five topics were extracted from each category. Common negative themes included noise issues, poor Wi-Fi connectivity, and bathroom-related complaints. On the positive side, guests frequently praised the staff, room comfort, and cleanliness.
 
-- Classify reviews as **positive** or **negative**
-- Discover key **themes** using topic modeling (LDA)
-- **Benchmark hotels** based on sentiment, price, and star ratings
-- Build an **interactive Flask web app** for end-user insights
+### Sentiment by Country
+Sentiment analysis by country revealed that Austria had the highest average review scores. The United Kingdom generated the most reviews, though the sentiment expressed was generally lower. The Netherlands exhibited strong sentiment scores relative to the average numerical ratings, indicating a more favorable perception.
 
+### Key Insights
+Frequent travelers tended to provide more balanced and objective reviews. The specific sentiment-related vocabulary varied depending on the type of traveler and their nationality. Regional differences were observed in both the volume and nature of reviews.
 
-## 🧠 Methodology
+### Hotel Benchmarking
+Hotels were grouped into three performance tiers based on a combination of sentiment scores and review features. GPT-based text summarization was used to highlight the most frequently mentioned positive and negative aspects of each tier. Common issues across underperforming hotels included noise disturbances, inconsistent cleanliness, and service delays.
 
-### 🔄 Data Preparation
-- Merged positive/negative reviews
-- Cleaned text, removed placeholders, tokenized, and lemmatized
-- Labeled sentiment (≥7 = Positive, <7 = Negative)
-- Balanced dataset: 86,851 positive + 86,851 negative reviews
+### Tools and Technologies
+The analysis was conducted using Python and libraries such as pandas, scikit-learn, NLTK, Gensim, and WordCloud. LIME was used for model explainability, while Flask was used to develop the web application. GPT API was employed for automated summary generation. Data visualizations were created using Matplotlib, including radar charts to compare hotel attributes.
 
-### 📊 Feature Engineering
-- TF-IDF vectorization (Top 5,000 words)
-- Created high-dimensional matrix for model input
+### Deliverables
+The final deliverables include a working sentiment classifier with interpretability features, topic models that summarize guest feedback, word clouds to visualize common themes, and an interactive web dashboard alongside a command-line interface tool for hotel comparison.
 
-### 🤖 Models Used
-- **Naive Bayes**  
-- **Logistic Regression** (Final model)  
-- **LIME** for model explainability
-  
-
-## 📌 Topic Modeling (LDA)
-
-- Separate models for positive and negative reviews
-- Extracted 5 topics per group
-- Highlighted key pain points (e.g., noise, Wi-Fi, bathrooms)
-- Identified guest favorites (e.g., staff, comfort, cleanliness)
-
-
-## 🌍 Sentiment by Country
-
-- Austria showed the highest average scores
-- UK had most reviews but lower sentiment
-- Netherlands had strong sentiment relative to scores
-
-
-## 💡 Insights
-
-- Frequent travelers gave more balanced ratings
-- Sentiment words varied based on travel type and nationality
-- Review volume varied by region
-
-
-## 📈 Hotel Benchmarking
-
-- Grouped hotels into 3 tiers
-- Used **GPT-based summaries** to highlight guest likes/dislikes
-- Common issues: noise, cleanliness, delays
-
-
-## 🛠 Tools & Technologies
-
-- **Python** (pandas, scikit-learn, NLTK, Gensim, WordCloud)
-- **LIME** (model explainability)
-- **Flask** (web app)
-- **GPT API** (summary generation)
-- **Matplotlib / Radar Charts** (visual insights)
-
-
-## 🧪 Deliverables
-
-- Sentiment classifier with LIME explainability
-- Topic models and keyword summaries
-- Word clouds for visual theme analysis
-- Web dashboard + CLI tool for hotel comparison
-
-
-## ✅ Conclusion
-
-This project demonstrates how NLP and machine learning can transform unstructured hotel review data into actionable business intelligence — empowering hospitality providers to make data-driven, guest-focused decisions.
-
-
-## 📁 Repository Contents
-
-- `data/` – cleaned and processed datasets  
-- `notebooks/` – EDA, modeling, LDA, visualizations  
-- `app/` – Flask web application  
-- `cli/` – GPT-powered benchmarking CLI tool  
-- `report/` – Final presentation and documentation  
-
+### Conclusion
+This project demonstrates how natural language processing and machine learning can be used to transform large volumes of unstructured hotel review data into meaningful insights. These insights can help hospitality businesses make informed, data-driven decisions that are aligned with guest preferences and expectations.
